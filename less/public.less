@@ -1,0 +1,281 @@
+@charset "utf-8";
+//1、边框                    
+.border(@k,@yangs,@ys){
+    border: @k @yangs @ys;
+}
+//上边框
+.border-top(@k,@yangs,@ys){
+    border: @k @yangs @ys;
+}
+//下边框
+.border-bottom(@k,@yangs,@ys){
+    border: @k @yangs @ys;
+}
+//左边框
+.border-left(@k,@yangs,@ys){
+    border: @k @yangs @ys;
+}
+//右边框
+.border-right(@k,@yangs,@ys){
+    border: @k @yangs @ys;
+}
+//圆角
+.border-r(@dx){
+    border-radius: @dx;
+}
+//全面控制
+.border-radius(@TL,@TR,@BL,@BR){
+    border-radius: @TL @TR @BL @BR;
+}
+//2、字体，字体大小，颜色，加粗
+.font(@zt,@dx,@color,@weight){
+    font-family: @zt;
+    font-size: @dx;
+    color: @color;
+    font-weight: @weight;
+}
+
+//3、尺寸
+.size(@width,@height){
+    width: @width;
+    height: @height;
+}
+//3、矩形
+.square(@size){
+    .size(@size,@size)
+}
+//4、内边距
+.padding(@dx){
+    padding: @dx;
+}
+//4、上内边距
+.padding-top(@dx){
+    padding-top: @dx;
+}
+//4、下内边距
+.padding-bottom(@dx){
+    padding-bottom: @dx;
+}
+//4、左内边距
+.padding-left(@dx){
+    padding-left: @dx;
+}
+//4、右内边距
+.padding-right(@dx){
+    padding-right: @dx;
+}
+//4、全面控制
+.padding(@top,@right,@bottom,@left){
+    padding: @top @right @bottom @left;
+}
+
+//5、外边距
+.margin(@dx){
+    margin: @dx;
+}
+//5、上外边距
+.margin-top(@dx){
+    margin-top: @dx;
+}
+//5、下外边距
+.margin-bottom(@dx){
+    margin-bottom: @dx;
+}
+//5、左外边距
+.margin-left(@dx){
+    margin-left: @dx;
+}
+//5、右外边距
+.margin-right(@dx){
+    margin-right: @dx;
+}
+//5、全面控制
+.margin(@top,@right,@bottom,@left){
+    margin: @top @right @bottom @left;
+}
+//6、文本溢出隐藏
+.ellipsis-more(@line){
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient:vertical
+}
+//7、背景色
+.bgcolor(@bg){
+    background-color: @bg;
+}
+//8、行块元素转换
+.dis(@hk){
+    display: @hk;
+}
+//9、行高
+.line-height(@hg){
+    line-height: @hg;
+}
+//10、动画过度时间
+
+//11、绝对定位
+.pos-relative{
+    position: relative;
+}
+//12、相对定位，固定定位，z-index
+//左上
+.pos-left-top(@fs,@left,@top,@z){
+    position: @fs;
+    left: @left;
+    top: @top;
+    z-index: @z;
+}
+//左下
+.pos-left-bottom(@fs,@left,@bottom,@z){
+    position: @fs;
+    left: @left;
+    bottom: @bottom;
+    z-index: @z;
+}
+//右上
+.pos-right-top(@fs,@right,@top,@z){
+    position: @fs;
+    right: @right;
+    top: @top;
+    z-index: @z;
+}
+//右下
+.pos-right-bottom(@fs,@right,@bottom,@z){
+    position: @fs;
+    right: @right;
+    bottom: @bottom;
+    z-index: @z;
+}
+//13、去按钮，表单默认边框
+.outline{
+    outline:none;
+}
+//14、图片
+.img{
+    display: block;
+    max-width: 100%;
+}
+//15、切换鼠标指针样式
+.cursor{
+    cursor: pointer;
+}
+//16、文本对齐方式
+.text-align(@dq){
+    text-align: @dq;
+}
+//17、透明
+.opacity(@tm){
+    opacity:@tm;
+}
+//18、取消padd，border所占值
+.box-sizing{
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+//19、鼠标指向放大图片
+.scale(@z,@y){
+    transform: scale(@z,@y);
+}
+//20、溢出隐藏或显示
+.overflow(@xsyc){
+    overflow:@xsyc;
+}
+// --------------CSS3新特性----------------
+.pre(@style,@value){
+    -webkit-@{style}:@value;  
+    -moz-@{style}:@value;
+    -ms-@{style}:@value;
+    -o-@{style}:@value;
+      @{style}:@value;
+}
+.animation-delay(@args){
+    .pre(animation-delay,@args)
+}
+.animation(@args){
+    .pre(animation,@args)
+}
+//21、是否允许用户选中内容
+.user-select(@value:none){
+    .pre(user-select,@value)
+}
+//22、滤镜
+.filter(@args){
+    .pre(filter,@args)
+}
+//23、过度
+.transition(@args){
+    .pre(transition,@args)
+}
+//24、变形
+.transform(@args){
+    .pre(transform,@args)
+}
+//25、多列
+
+//26、弹性盒子
+
+//27、透明度
+.opacity(@opacity) {
+    opacity: @opacity;
+    // IE8 filter
+    @opacity-ie: (@opacity * 100);
+    filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+.placeholder(@color:@input-color-placeholder){
+    &::-moz-placeholder{
+        color: #color;
+    }
+//  火狐
+    &::-ms-input-placeholder{
+        color: @color;
+    }
+//  IE
+    &::-webkit-input-placeholder{
+        color: @color;
+    }
+//  Chrome
+}
+
+//文本截断-单行
+.text-overflow(@type:ellipsis){
+    overflow: hidden;
+    text-overflow: @type;
+    white-space: nowrap;
+}
+
+//文本截断-多行
+.text-overflow-more(@line){
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical;
+}
+//可调整文本域
+.resizable(@direction:both){
+    //Options:horizontal,vertical,both
+    resize: @direction;
+    //Safarl fix
+    overflow: auto;
+}
+//定位到水平居中
+.position-x{
+    position: absolute;
+    left: 50%;
+    .transform(translateX(-50%));
+}
+//定位到垂直居中
+.position-x{
+    position: absolute;
+    top: 50%;
+    .transform(translateY(-50%));
+}
+//定位到水平垂直都居中
+.position-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    .transform(translate(-50%,-50%));
+}
